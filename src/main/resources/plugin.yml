@@ -1,0 +1,39 @@
+name: AdvancedEssentials
+version: 1.0
+main: net.baumarkt.advanced.essentials.Essentials
+api-version: 1.16
+
+commands:
+  teleportAsk:
+    description: Ask the player if you can teleport to them
+    aliases: [tpa, call]
+  ping:
+    description: Displays the current ping
+    aliases: [getping]
+  inventorysee:
+    description: Check out other players' inventories
+    aliases: [invsee]
+  list:
+    description: Lists the players online
+  getposition:
+    description: Shows you your current position.
+    aliases: [getpos]
+  more:
+    description: Sets the number of items you hold in your hand to 64
+  heal:
+    description: Fill your health-level
+  feed:
+    description: Fill your food-level
+  gamemode:
+    description: Change the gamemode
+    aliases: [gm]
+  time:
+    description: Change the time
+  fly:
+    description: You can fly
+  enchant:
+    aliases: [enchantment]
+    description: Enchantment the item in hand
+  bigtree:
+    description: Generate a tree
+

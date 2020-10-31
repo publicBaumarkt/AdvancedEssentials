@@ -1,0 +1,122 @@
+#
+# Advanced Essentials
+#
+
+prefix: "&8[&bAdvancedEssentials&8] &7"
+
+events:
+  playerLeaveEvent:
+    useLeaveMessage: false
+    leaveMessage: "&a%player% &7left the game"
+  playerJoinEvent:
+    useJoinMessage: false
+    joinMessage: "&a%player% &7has to join the game"
+commands:
+  home:
+    useUI: true
+    usePermission: false
+    permission: "advancedEssentials.commands.home"
+    noPermissionMessage: "%prefix% &cYou are not allowed to execute this command."
+    consoleCannotExecuteCommandMessage: "%prefix% &cConsole cannot execute the command!"
+    usageMessage: "%prefix% Use &a/home <create|delete> <name>"
+  teleportAsk:
+    usePermission: false
+    permission: "advancedEssentials.commands.teleportAsk"
+    consoleCannotExecuteCommandMessage: "%prefix% &cConsole cannot execute the command!"
+    usageMessage: "%prefix% Use &a/teleportAsk <player>"
+    playerNotFoundMessage: "%prefix% &cPlayer not found."
+    askMessage: "%prefix% %player% would like to teleport to you. &a[ACCEPT]"
+    askSendMessage: "%prefix% &aYou have sent a teleport request"
+    askAcceptedMessage: "%prefix% &aYou accepted the request."
+    askAcceptedPlayerMessage: "%prefix% &a%player% accepted the request. You will be teleported in 3 seconds."
+    askAcceptedCountdownMessage: "%prefix% &aYou will be teleported in %counter% seconds."
+    noAskFoundMessage: "%prefix% &cNo request was found from the player to you"
+    noPermissionMessage: "%prefix% &cYou are not allowed to execute this command."
+  ping:
+    usePermission: false
+    permission: "advancedEssentials.commands.ping"
+    consoleCannotExecuteCommandMessage: "%prefix% &cConsole cannot execute the command!"
+    pingMessage: "%prefix% &7Your ping is &a%ping%&7ms"
+    noPermissionMessage: "%prefix% &cYou are not allowed to execute this command."
+  inventorysee:
+    permission: "advancedEssentials.commands.inventorysee"
+    consoleCannotExecuteCommandMessage: "%prefix% &cConsole cannot execute the command!"
+    noPermissionMessage: "%prefix% &cYou are not allowed to execute this command."
+    playerNotFoundMessage: "%prefix% &cPlayer not found."
+    usageMessage: "%prefix% Use &a/inventorysee <player>"
+  list:
+    usePermission: false
+    permission: "advancedEssentials.commands.list"
+    consoleCannotExecuteCommandMessage: "%prefix% &cConsole cannot execute the command!"
+    listMessage: "%prefix% &8(%CURRENT_PLAYERS%/%MAX_PLAYERS%) &7%playerList%"
+  getposition:
+    usePermission: false
+    permission: "advancedEssentials.commands.getposition"
+    positionMessage: "%prefix% &aX: %X%, Y: %Y%, Z: %Z%"
+    consoleCannotExecuteCommandMessage: "%prefix% &cConsole cannot execute the command!"
+  more:
+    permission: "advancedEssentials.commands.more"
+    consoleCannotExecuteCommandMessage: "%prefix% &cConsole cannot execute the command!"
+    moreSuccessfully: "%prefix% &aYou now have 64 items."
+    noPermissionMessage: "%prefix% &cYou are not allowed to execute this command."
+  heal:
+    permission: "advancedEssentials.commands.heal"
+    consoleCannotExecuteCommandMessage: "%prefix% &cConsole cannot execute the command!"
+    usageMessage: "%prefix% Use &a/heal (<player>)"
+    playerNotFoundMessage: "%prefix% &cPlayer not found."
+    healthChangedMessage: "%prefix% &aYour health was changed."
+    healthChangedFromPlayerMessage: "%prefix% &aThe player health was changed."
+    noPermissionMessage: "%prefix% &cYou are not allowed to execute this command."
+  feed:
+    permission: "advancedEssentials.commands.feed"
+    consoleCannotExecuteCommandMessage: "%prefix% &cConsole cannot execute the command!"
+    usageMessage: "%prefix% Use &a/feed (<player>)"
+    playerNotFoundMessage: "%prefix% &cPlayer not found."
+    foodChangedMessage: "%prefix% &aYour food level has been changed"
+    foodChangedFromPlayerMessage: "%prefix% &aThe player food level has been changed"
+    noPermissionMessage: "%prefix% &cYou are not allowed to execute this command."
+  gamemode:
+    permission: "advancedEssentials.commands.gamemode"
+    consoleCannotExecuteCommandMessage: "%prefix% &cConsole cannot execute the command!"
+    usageMessage: "%prefix% Use &a/gamemode <0-3> (<player>)"
+    gameModeChangedMessage: "%prefix% &7You are now in %gameMode% gamemode."
+    gameModeChangedFromPlayerMessage: "%prefix% &7The player are now in %gameMode% gamemode."
+    gameModeNotFoundMessage: "%prefix% &cThis GameMode was not found"
+    playerNotFoundMessage: "%prefix% &cPlayer not found."
+    noPermissionMessage: "%prefix% &cYou are not allowed to execute this command."
+  time:
+    permission: "advancedEssentials.commands.time"
+    consoleCannotExecuteCommandMessage: "%prefix% &cConsole cannot execute the command!"
+    usageMessage: "%prefix% Use &a/time <day|night|(ticks?)> (<world>)"
+    noPermissionMessage: "%prefix% &cYou are not allowed to execute this command."
+    timeChangedMessage: "%prefix% &aThe time was changed to %newTime%"
+  fly:
+    permission: "advancedEssentials.commands.fly"
+    consoleCannotExecuteCommandMessage: "%prefix% &cConsole cannot execute the command!"
+    noPermissionMessage: "%prefix% &cYou are not allowed to execute this command."
+    usageMessage: "%prefix% Use &a/fly (<player>)"
+    flyActivatedMessage: "%prefix% &7You can fly now."
+    flyUnactivatedMessage: "%prefix% &7You can no longer fly."
+    flyFromOtherPlayerUnactivatedMessage: "%prefix% &7The player can no longer fly."
+    flyFromOtherPlayerActivatedMessage: "%prefix% &7The player can fly now."
+    playerNotFoundMessage: "%prefix% &cPlayer not found."
+  enchant:
+    permission: "advancedEssentials.commands.enchant"
+    consoleCannotExecuteCommandMessage: "%prefix% &cConsole cannot execute the command!"
+    noPermissionMessage: "%prefix% &cYou are not allowed to execute this command."
+    usageMessage: "%prefix% Use &a/enchant <enchantment> <level> (<player>) | /enchant list"
+    listMessage: "%prefix% There are these types of enchantments: &a%enchantmentTypes%"
+    itemEnchantedMessage: "%prefix% The item has been &aenchanted"
+    unknownEnchantmentTypeMessage: "%prefix% &cThis enchantment type was not found!"
+    playerNotFoundMessage: "%prefix% &cPlayer not found."
+    itemEnchantedFromPlayerMessage: "%prefix% The item from the player has been &aenchanted"
+  bigTree:
+    permission: "advancedEssentials.commands.bigTree"
+    usageMessage: "%prefix% Use &a/bigree <treeType> (<player>) | list"
+    listMessage: "%prefix% There are these types of trees: &a%tressesTypes%"
+    noPermissionMessage: "%prefix% &cYou are not allowed to execute this command."
+    generatedMessage: "%prefix% &aThe tree was generated"
+    generatedMessageAtPlayer: "%prefix% &aThe tree was generated at the chosen player"
+    unknownTreeTypeMessage: "%prefix% &cThis tree species was not found!"
+    consoleCannotExecuteCommandMessage: "%prefix% &cConsole cannot execute the command!"
+    playerNotFoundMessage: "%prefix% &cPlayer not found."
