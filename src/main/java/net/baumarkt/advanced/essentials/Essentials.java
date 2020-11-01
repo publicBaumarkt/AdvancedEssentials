@@ -1,6 +1,7 @@
 package net.baumarkt.advanced.essentials;
 
 import net.baumarkt.advanced.essentials.commands.*;
+import net.baumarkt.advanced.essentials.listeners.InventoryClickListener;
 import net.baumarkt.advanced.essentials.listeners.PlayerJoinListener;
 import net.baumarkt.advanced.essentials.listeners.PlayerQuitListener;
 import net.baumarkt.advanced.essentials.utils.Utility;
@@ -42,10 +43,12 @@ public final class Essentials extends JavaPlugin {
 
         pluginManager.registerEvents(new PlayerJoinListener(), this);
         pluginManager.registerEvents(new PlayerQuitListener(), this);
+        pluginManager.registerEvents(new InventoryClickListener(), this);
 
     }
 
     private void registerCommands(){
+        getCommand("home").setExecutor(new HomeCommand());
         getCommand("bigtree").setExecutor(new BigTreeCommand());
         getCommand("enchant").setExecutor(new EnchantCommand());
         getCommand("fly").setExecutor(new FlyCommand());
@@ -59,6 +62,7 @@ public final class Essentials extends JavaPlugin {
         getCommand("inventorysee").setExecutor(new InventorySeeCommand());
         getCommand("ping").setExecutor(new PingCommand());
         getCommand("teleportask").setExecutor(new TeleportAskCommand());
+        getCommand("exp").setExecutor(new ExpCommand());
     }
 
     public String getPrefix() {

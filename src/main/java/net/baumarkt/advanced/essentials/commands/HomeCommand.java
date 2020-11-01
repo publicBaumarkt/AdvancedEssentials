@@ -4,6 +4,7 @@ import net.baumarkt.advanced.essentials.Essentials;
 import net.baumarkt.advanced.essentials.commands.etc.BetterCommandExecutor;
 import net.baumarkt.advanced.essentials.commands.etc.BetterCommandType;
 import net.baumarkt.advanced.essentials.utils.Utility;
+import net.baumarkt.advanced.essentials.utils.home.objects.Home;
 import net.baumarkt.advanced.essentials.utils.player.EssentialsPlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -29,15 +30,37 @@ public class HomeCommand implements BetterCommandExecutor {
 
             switch (args.length){
                 case 0:
-
+                    if(Essentials.UTILITY.readConfigBoolean("commands.home.useUI"))
+                        essentialsPlayer.openHomeUI();
+                    else
+                        player.sendMessage(Essentials.UTILITY.readConfigString("commands.home.usageMessage"));
                     break;
-                default:
-                    if(Essentials.UTILITY.readConfigBoolean("commands.home.useUI")){
+                case 1:
+                    if(args[0].equalsIgnoreCase("create")){
+                        int homeSize = essentialsPlayer.getHomes().size();
 
+                        if(homeSize < 7){
+                            essentialsPlayer.setHome(homeSize + 1);
+                            player.sendMessage(Essentials.UTILITY.readConfigString("commands.home.homeSetMessage"));
+                            return true;
+                        }
+                        return true;
                     }
 
+                    try{
+                        int homeNumber = Integer.parseInt(args[0]);
 
+                        if(essentialsPlayer.getHome(homeNumber) == null)
+                            return true;
 
+                        player.teleport(essentialsPlayer.getHome(homeNumber).getLocation());
+
+                    }catch (NumberFormatException exception){
+                        player.sendMessage(Essentials.getInstance().getPrefix() + "§cerror: " + exception.getMessage());
+                    }
+                    break;
+                default:
+                    player.sendMessage(Essentials.UTILITY.readConfigString("commands.home.usageMessage"));
                     break;
             }
 

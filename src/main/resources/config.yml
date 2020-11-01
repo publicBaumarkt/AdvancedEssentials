@@ -12,13 +12,24 @@ events:
     useJoinMessage: false
     joinMessage: "&a%player% &7has to join the game"
 commands:
+  exp:
+    usePermission: false
+    permission: "advancedEssentials.commands.exp"
+    noPermissionMessage: "%prefix% &cYou are not allowed to execute this command."
+    consoleCannotExecuteCommandMessage: "%prefix% &cConsole cannot execute the command!"
+    usageMessage: "%prefix% Use &a/exp <*set*|get> <player> <*level*>"
+    playerNotFoundMessage: "%prefix% &cPlayer not found."
+    getExpLevelMessage: "%prefix% &7The player has %level% levels."
+    playerChangesLevelMessage: "%prefix% &aThe levels from the player was changed."
   home:
     useUI: true
     usePermission: false
     permission: "advancedEssentials.commands.home"
     noPermissionMessage: "%prefix% &cYou are not allowed to execute this command."
     consoleCannotExecuteCommandMessage: "%prefix% &cConsole cannot execute the command!"
-    usageMessage: "%prefix% Use &a/home <create|delete> <name>"
+    usageMessage: "%prefix% Use &a/home (create)"
+    homeSetMessage: "%prefix% &aYou set a new home "
+    homeDeleted: "%prefix% &aYou deleted the home"
   teleportAsk:
     usePermission: false
     permission: "advancedEssentials.commands.teleportAsk"

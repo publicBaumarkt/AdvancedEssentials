@@ -4,6 +4,10 @@ main: net.baumarkt.advanced.essentials.Essentials
 api-version: 1.16
 
 commands:
+  exp:
+    description: Change level's
+  home:
+    description: Create homes and teleport to the homes
   teleportAsk:
     description: Ask the player if you can teleport to them
     aliases: [tpa, call]

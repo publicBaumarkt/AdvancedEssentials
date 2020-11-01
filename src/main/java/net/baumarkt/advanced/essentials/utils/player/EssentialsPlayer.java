@@ -3,9 +3,11 @@ package net.baumarkt.advanced.essentials.utils.player;
 import com.google.common.collect.Lists;
 import net.baumarkt.advanced.essentials.Essentials;
 import net.baumarkt.advanced.essentials.utils.home.objects.Home;
+import net.baumarkt.advanced.essentials.utils.itemstack.ItemBuilder;
 import net.baumarkt.advanced.essentials.utils.teleport.ask.objects.TeleportAsk;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
@@ -48,8 +50,8 @@ public class EssentialsPlayer {
 
         this.homes.add(home);
 
-
-
+        Essentials.UTILITY.getHomeManager().getHomeConfig().set("home." + player.getUniqueId() + "." + homeNumber + ".owner", player.getName());
+        Essentials.UTILITY.getHomeManager().getHomeConfig().set("home." + player.getUniqueId() + "." + homeNumber + ".location", player.getLocation());
     }
 
     public void setCanFly(boolean canFly) {
@@ -57,11 +59,29 @@ public class EssentialsPlayer {
         player.setAllowFlight(canFly);
     }
 
+
     public void openHomeUI(){
         final Inventory inventory = Bukkit.createInventory(null, 9, "§7Homes");
 
+        for (Home home : homes) {
+            inventory.addItem(new ItemBuilder(Material.ITEM_FRAME)
+                    .setDisplayName("§a" + home.getId())
+                    .addLore("§7X: " + String.valueOf(home.getLocation().getX()).split("\\.")[0],
+                            "§7Y:"  +String.valueOf(home.getLocation().getY()).split("\\.")[0],
+                            "§7Z: " + String.valueOf(home.getLocation().getZ()).split("\\.")[0])
+                    .build());
+        }
 
         player.openInventory(inventory);
+    }
+
+    public Home getHome(final int id){
+        for (Home home : this.homes) {
+            if(home.getId() == id)
+                return home;
+        }
+
+        return null;
     }
 
     public boolean isCanFly() {
